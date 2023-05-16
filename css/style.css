@@ -61,7 +61,7 @@ body {
 }
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   max-width: 600px;
 }
 
