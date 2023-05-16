@@ -54,7 +54,6 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #555;
-  /* vertical-align: middle; */
   background-color: #fff;
   outline: none;
   border: 1px solid #ccc;
@@ -71,15 +70,12 @@ body {
   border-color: #357ebd;
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 3px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -89,15 +85,12 @@ body {
   border-color: #d43f3a;
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-bottom: 3px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -160,10 +153,7 @@ h3 {
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
   width: 90px;
@@ -179,10 +169,7 @@ h3 {
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
   width: 90px;
@@ -198,10 +185,7 @@ h3 {
   font-weight: normal;
   line-height: 1.428571429;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
   width: 90px;
@@ -243,6 +227,7 @@ h3 {
 .dropdown-content span:hover {
   background: #efefef;
   padding: 15px;
+  border-radius: 5px;
 }
 
 .dropdown:hover .dropdown-content {
