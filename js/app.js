@@ -70,7 +70,7 @@ const todosGenerator = (todosList) => {
         }
         newLi.append(newLabel, newCompleteBtn, newDeleteBtn, newEditBtn);
         todoListElement.append(newLi);
-
+        console.log(todosArray);
     });
 };
 
@@ -102,26 +102,22 @@ todoListElement.addEventListener('click', (e) => {
         const todoId = parseInt(e.target.parentNode.id);
         deleteTodo(todoId);
     } else if (e.target.className === 'completeBtn') {
-        if (e.target.innerHTML == 'Complete') {
-            const todoId = parseInt(e.target.parentNode.id);
-            const todoIndex = todosArray.findIndex(todo => todo.id === todoId);
-            if (todoIndex !== -1) {
-                todosArray[todoIndex].complete = true;
-                setLocalStorage(todosArray);
-                e.target.parentNode.classList.add('completed');
-                e.target.innerHTML = 'undo';
-                e.target.style.opacity = '0.5'
-            }
-        } else {
-            const todoId = parseInt(e.target.parentNode.id);
-            const todoIndex = todosArray.findIndex(todo => todo.id === todoId);
-            if (todoIndex !== -1) {
-                todosArray[todoIndex].complete = false;
-                setLocalStorage(todosArray);
-                e.target.parentNode.classList.remove('completed');
-                e.target.innerHTML = 'Complete';
-                e.target.style.opacity = '1'
-            }
+        const todoId = parseInt(e.target.parentNode.id);
+        const todoIndex = todosArray.findIndex(todo => todo.id === todoId);
+        if (todoIndex !== -1) {
+          if (todosArray[todoIndex].complete) {
+            todosArray[todoIndex].complete = false;
+            setLocalStorage(todosArray);
+            e.target.parentNode.classList.remove('completed');
+            e.target.innerHTML = 'Complete';
+            e.target.style.opacity = '1';
+          } else {
+            todosArray[todoIndex].complete = true;
+            setLocalStorage(todosArray);
+            e.target.parentNode.classList.add('completed');
+            e.target.innerHTML = 'undo';
+            e.target.style.opacity = '0.5';
+          }
         }
     }
 });

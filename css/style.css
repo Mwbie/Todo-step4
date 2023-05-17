@@ -8,20 +8,22 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333;
-  background-color: #fff;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: url(../images/back.jpg);
+  /* background: url(../images/back.jpg); */
+  background-color: #0A0A0A;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+ 
   padding-top: 10px;
+  overscroll-behavior-y: smooth;
 }
 .container {
+  margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  max-width: 1200px;
+  min-height: 100vh;
 }
 .container h2 {
   text-align: center;
@@ -113,6 +115,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(1, minmax(250px, 1fr));
   gap: 5px;
+
 }
 
 #todoList label {
@@ -237,6 +240,7 @@ h3 {
 @media screen and (max-width: 600px) {
   body {
     background-position: center;
+
   }
   #todoList {
     grid-template-columns: repeat(2, 1fr);
