@@ -2,6 +2,7 @@ const todoInput = document.querySelector('#itemInput')
 const addBtn = document.querySelector('#addButton')
 const clearBtn = document.querySelector('#clearButton')
 let todoListElement = document.querySelector('#todoList')
+let dropDown = document.querySelector('.dropdown-content')
 let todosArray = []
 
 const addTodo = () => {
@@ -43,16 +44,10 @@ const deleteTodo = (id) => {
 
 const todosGenerator = (todosList) => {
     todoListElement.innerHTML = '';
-    let newLi, newLabel, newCompleteBtn, newDeleteBtn,newEditBtn;
+    let newLi, newLabel, newCompleteBtn, newDeleteBtn, newEditBtn;
     todosList.forEach(todo => {
-        // todoListElement.insertAdjacentHTML("afterbegin",`
-
-        // <li id="${todo.id}"><label>${todo.title}</label><button id="btnComplete" class="completeBtn">Complete</button><button id="btnDelete" class="deleteBtn">delete</button></li>
-
-        // `)
-  
         newLi = document.createElement('li');
-        newLi.id = todo.id; 
+        newLi.id = todo.id;
         newLi.classList.add('listElem')
         newLabel = document.createElement('label');
         newLabel.innerHTML = todo.title;
@@ -73,12 +68,23 @@ const todosGenerator = (todosList) => {
         } else {
             newCompleteBtn.innerHTML = 'Complete';
         }
-        newLi.append(newLabel, newCompleteBtn, newDeleteBtn , newEditBtn);
+        newLi.append(newLabel, newCompleteBtn, newDeleteBtn, newEditBtn);
         todoListElement.append(newLi);
 
     });
 };
 
+const filterInCompleteTodos = (todosList) => {
+    return todosList.filter(todo => !todo.complete);
+  };
+  
+  const filterCompletedTodos = (todosList) => {
+    return todosList.filter(todo => todo.complete);
+  };
+  
+  const filterAllTodos = (todosList) => {
+    return todosList;
+  };
 const getLocalStorage = () => {
     const localTodos = JSON.parse(localStorage.getItem('todos'));
     todosArray = localTodos || [];
@@ -96,7 +102,7 @@ todoListElement.addEventListener('click', (e) => {
         const todoId = parseInt(e.target.parentNode.id);
         deleteTodo(todoId);
     } else if (e.target.className === 'completeBtn') {
-        if(e.target.innerHTML == 'Complete'){
+        if (e.target.innerHTML == 'Complete') {
             const todoId = parseInt(e.target.parentNode.id);
             const todoIndex = todosArray.findIndex(todo => todo.id === todoId);
             if (todoIndex !== -1) {
@@ -106,7 +112,7 @@ todoListElement.addEventListener('click', (e) => {
                 e.target.innerHTML = 'undo';
                 e.target.style.opacity = '0.5'
             }
-        }else{
+        } else {
             const todoId = parseInt(e.target.parentNode.id);
             const todoIndex = todosArray.findIndex(todo => todo.id === todoId);
             if (todoIndex !== -1) {
@@ -115,8 +121,8 @@ todoListElement.addEventListener('click', (e) => {
                 e.target.parentNode.classList.remove('completed');
                 e.target.innerHTML = 'Complete';
                 e.target.style.opacity = '1'
+            }
         }
-              }
     }
 });
 
@@ -128,3 +134,27 @@ todoInput.addEventListener('keydown', (e) => {
         return;
     }
 });
+
+dropDown.addEventListener('click', (e) => {
+    switch (e.target.classList[0]) {
+      case 'showAll': {
+        todosGenerator(filterAllTodos(todosArray));
+        break;
+      }
+      case 'not-Completed': {
+        todosGenerator(filterInCompleteTodos(todosArray));
+        break;
+      }
+      case 'completed': {
+        todosGenerator(filterCompletedTodos(todosArray));
+        break;
+      }
+    }
+  });
+
+
+        // todoListElement.insertAdjacentHTML("afterbegin",`
+
+        // <li id="${todo.id}"><label>${todo.title}</label><button id="btnComplete" class="completeBtn">Complete</button><button id="btnDelete" class="deleteBtn">delete</button></li>
+
+        // `)
