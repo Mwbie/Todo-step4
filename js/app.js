@@ -46,6 +46,11 @@ const todosGenerator = (todosList) => {
   todoListElement.innerHTML = '';
   let newLi, newLabel, newCompleteBtn, newDeleteBtn, newEditBtn;
   todosList.forEach(todo => {
+        // todoListElement.insertAdjacentHTML("afterbegin",`
+
+        // <li id="${todo.id}"><label>${todo.title}</label><button id="btnComplete" class="completeBtn">Complete</button><button id="btnDelete" class="deleteBtn">delete</button></li>
+
+        // `)
     newLi = document.createElement('li');
     newLi.id = todo.id;
     newLi.classList.add('listElem')
@@ -164,9 +169,3 @@ dropDown.addEventListener('click', (e) => {
   }
 });
 
-
-        // todoListElement.insertAdjacentHTML("afterbegin",`
-
-        // <li id="${todo.id}"><label>${todo.title}</label><button id="btnComplete" class="completeBtn">Complete</button><button id="btnDelete" class="deleteBtn">delete</button></li>
-
-        // `)
