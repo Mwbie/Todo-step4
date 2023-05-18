@@ -7,6 +7,7 @@ HTML structure:
 
 The application's HTML structure consists of various elements such as input fields, buttons, and a list to display todos.
 Each todo item in the list is represented by an <li> element containing a label, complete button, delete button, and edit button.
+
 JavaScript functions:
 
 addTodo: This function handles the addition of new todos. It retrieves the todo title from the input field, creates a todo object, adds it to the todos array, saves the updated todos to local storage, generates the updated todo list, and clears the input field.
