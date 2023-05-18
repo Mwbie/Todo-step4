@@ -8,8 +8,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333;
-  /* background: url(../images/back.jpg); */
-  background-color: #0A0A0A;
+  background-color: #0a0a0a;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -23,7 +22,6 @@ body {
   margin-right: auto;
   margin-left: auto;
   max-width: 1200px;
-
 }
 .container h2 {
   text-align: center;
@@ -115,13 +113,18 @@ h3 {
   display: grid;
   grid-template-columns: repeat(1, minmax(250px, 1fr));
   gap: 5px;
-
 }
 #todoList label {
   width: 50%;
   display: inline-block;
-  margin-bottom: 5px;
   font-weight: bold;
+  padding-top: 6px;
+  padding-left: 2px;
+}
+#todoList label:focus {
+  border: 1px solid #3a3695;
+  outline: none;
+  border-radius: 6px;
 }
 #todoList li {
   list-style-type: none;
@@ -133,6 +136,7 @@ h3 {
   border-radius: 4px;
   width: 100%;
   display: flex;
+  justify-content: space-evenly;
 }
 
 .completed label,
@@ -243,7 +247,7 @@ h3 {
 
 @keyframes todo-animation {
   0% {
-   opacity: 0.3;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -252,7 +256,6 @@ h3 {
 @media screen and (max-width: 600px) {
   body {
     background-position: center;
-
   }
   #todoList {
     grid-template-columns: repeat(2, 1fr);
@@ -267,11 +270,12 @@ h3 {
   #todoList label {
     width: 100%;
     text-align: center;
+    margin-bottom: 2px;
   }
-  .nav{
+  .nav {
     flex-direction: column;
   }
-  .dropbtn{
+  .dropbtn {
     width: 100%;
   }
   .dropdown-content {
