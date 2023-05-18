@@ -117,7 +117,6 @@ h3 {
   gap: 5px;
 
 }
-
 #todoList label {
   width: 50%;
   display: inline-block;
@@ -236,6 +235,19 @@ h3 {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.animate {
+  animation-name: todo-animation;
+  animation-duration: 0.5s;
+}
+
+@keyframes todo-animation {
+  0% {
+   opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @media screen and (max-width: 600px) {
   body {

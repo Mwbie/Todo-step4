@@ -53,7 +53,7 @@ const todosGenerator = (todosList) => {
         // `)
     newLi = document.createElement('li');
     newLi.id = todo.id;
-    newLi.classList.add('listElem')
+    newLi.classList.add('animate'); // اضافه کردن کلاس animate به عنصر li
     newLabel = document.createElement('label');
     newLabel.innerHTML = todo.title;
     newCompleteBtn = document.createElement('button');
